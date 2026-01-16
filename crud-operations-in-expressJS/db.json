@@ -1,0 +1,48 @@
+{
+    "students":  [
+{
+    "id": 1,
+    "name": "Rahul",
+    "course": "Data Science",
+    "year": 1
+   },
+  {
+   "id": 2,
+   "name": "Ravi",
+   "course": "Web developer",
+   "year": 1
+  },
+  {
+   "id": 3,
+   "name": "Naitik",
+   "course": "Computer Science",
+   "year": 2
+  },
+  { 
+   "id": 4,
+   "name": "Pratik",
+   "course": "full stack developer",
+   "year": 1
+  },
+  {
+   "id": 5,
+   "name": "Kanak",
+   "course": "Computer Science",
+   "year": 2
+   },
+   {
+    "id": 6,
+    "name": "Aman",
+    "course": "Computer Science",
+    "year": 2
+   },
+   {
+    "id": 7,
+    "name": "Vani",
+    "course": "Data Science",
+    "year": 1
+   } 
+
+  ]
+
+}
