@@ -108,6 +108,7 @@
 
    select name, email from students1
 
+
 #process => * Database retrieves data using SELECT query
             * Database retrieves only name and email columns
 
@@ -142,7 +143,7 @@
 #NOTE: Duplicate records appear because the insert query was executed multiple times.
 
 
-##step-5 => Get students by course (GET)
+##step-5 =>  Get students by course (GET)
 #input Query 
      select * from students1 where course = 'python development'
 
