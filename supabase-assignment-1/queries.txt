@@ -1,0 +1,381 @@
+## Step-1 =>  create table name is students1 and insert data 
+#input Queries
+
+      create table students1 (
+       id serial primary key,
+       name text,
+       email text,
+       age integer,
+       course text,
+       created_at timestamp default now()
+     )
+ 
+ insert into students1(name, email, age, course) values
+ ('anushka', 'ann@9220', 23, 'web development'),
+ ('kavita', 'kavita@1970', 21, 'project management'),
+ ('mateti', 'mateti@0900', 33, 'prompt engineering'),
+ ('vikky', 'vikk@9979', 33, 'data science'),
+ ('viita', 'vita@2280', 22, 'product management'),
+ ('karan', 'karan@9002', 23, 'python development'),
+ ('deepty', 'dipt@1150', 23, 'web development'),
+ ('naman', 'nama@8611', 21, 'full stack web development'),
+ ('karan', 'karan@7990', 33, 'data analytics'),
+ ('javed', 'jk@9245', 19, 'data science'),
+ ('vani', 'vani@9909', 22, 'product management')
+
+#process => * Database creates a table named students1
+            * Student records are inserted into the table
+
+#output => table is created and data is successfully stored
+
+
+ ## step-2 => get all records from table
+#input Query
+
+     select * from students1 
+
+#process => * A GET request is executed
+            * Database retrieves all records from students1 table
+
+#output 
+
+| id | name    | email       | age | course                     | created_at                 |
+| -- | ------- | ----------- | --- | -------------------------- | -------------------------- |
+| 1  | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 2  | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:43:30.376081 |
+| 3  | mateti  | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:43:30.376081 |
+| 4  | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:43:30.376081 |
+| 5  | viita   | vita@2280   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 6  | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:43:30.376081 |
+| 7  | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 8  | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:43:30.376081 |
+| 9  | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:43:30.376081 |
+| 10 | javed   | jk@9245     | 19  | data science               | 2026-01-22 12:43:30.376081 |
+| 11 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 12 | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 13 | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:46:39.223444 |
+| 14 | mateti  | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:46:39.223444 |
+| 15 | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:46:39.223444 |
+| 16 | viita   | vita@2280   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 17 | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:46:39.223444 |
+| 18 | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 19 | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:46:39.223444 |
+| 20 | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:46:39.223444 |
+| 21 | javed   | jk@9245     | 19  | data science               | 2026-01-22 12:46:39.223444 |
+| 22 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+##step-3 => get students data according to age 
+#input Query
+    
+    select * from students1 where age>20
+
+#Process=> * A GET request is sent with a conditions
+           * Database filters records where age is greater than 20
+
+#output
+  * first  => only students with age more than 20 are displayed
+
+| id | name    | email       | age | course                     | created_at                 |
+| -- | ------- | ----------- | --- | -------------------------- | -------------------------- |
+| 1  | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 2  | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:43:30.376081 |
+| 3  | mateti  | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:43:30.376081 |
+| 4  | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:43:30.376081 |
+| 5  | viita   | vita@2280   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 6  | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:43:30.376081 |
+| 7  | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 8  | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:43:30.376081 |
+| 9  | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:43:30.376081 |
+| 11 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 12 | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 13 | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:46:39.223444 |
+| 14 | mateti  | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:46:39.223444 |
+| 15 | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:46:39.223444 |
+| 16 | viita   | vita@2280   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 17 | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:46:39.223444 |
+| 18 | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 19 | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:46:39.223444 |
+| 20 | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:46:39.223444 |
+| 22 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+
+##step-4 => Select specific columns (GET)
+#input  Query
+
+   select name, email from students1
+
+#process => * Database retrieves data using SELECT query
+            * Database retrieves only name and email columns
+
+#output
+  *List of student names and emails
+
+| name    | email       |
+| ------- | ----------- |
+| anushka | ann@9220    |
+| kavita  | kavita@1970 |
+| mateti  | mateti@0900 |
+| vikky   | vikk@9979   |
+| viita   | vita@2280   |
+| karan   | karan@9002  |
+| deepty  | dipt@1150   |
+| naman   | nama@8611   |
+| karan   | karan@7990  |
+| javed   | jk@9245     |
+| vani    | vani@9909   |
+| anushka | ann@9220    |
+| kavita  | kavita@1970 |
+| mateti  | mateti@0900 |
+| vikky   | vikk@9979   |
+| viita   | vita@2280   |
+| karan   | karan@9002  |
+| deepty  | dipt@1150   |
+| naman   | nama@8611   |
+| karan   | karan@7990  |
+| javed   | jk@9245     |
+| vani    | vani@9909   |
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+
+##step-5 => Get students by course (GET)
+#input Query 
+     select * from students1 where course = 'python development'
+
+#process => * A GET request is sent with a filter condition
+            * Database matches records with the given course
+
+#output
+  * Students enrolled in python development
+    
+| id | name  | email      | age | course             | created_at                 |
+| -- | ----- | ---------- | --- | ------------------ | -------------------------- |
+| 6  | karan | karan@9002 | 23  | python development | 2026-01-22 12:43:30.376081 |
+| 17 | karan | karan@9002 | 23  | python development | 2026-01-22 12:46:39.223444 |
+   
+
+#input Query 
+   select * from students1 where course = 'product management';
+
+#process => * Database filters records based on course
+
+#output 
+    * Students enrolled in product management
+
+| id | name  | email     | age | course             | created_at                 |
+| -- | ----- | --------- | --- | ------------------ | -------------------------- |
+| 5  | viita | vita@2280 | 22  | product management | 2026-01-22 12:43:30.376081 |
+| 11 | vani  | vani@9909 | 22  | product management | 2026-01-22 12:43:30.376081 |
+| 16 | viita | vita@2280 | 22  | product management | 2026-01-22 12:46:39.223444 |
+| 22 | vani  | vani@9909 | 22  | product management | 2026-01-22 12:46:39.223444 |
+
+
+##step-6 => Update age using id (UPDATE)
+#input Query 
+   update students1 set age = 30 where id = 3;
+
+#process => * Database finds the record with id 3
+            * Updates the age field
+
+#output 
+ * Age of student with id 3 is updated to 30
+
+ | id | name    | email       | age | course                     | created_at                 |
+| -- | ------- | ----------- | --- | -------------------------- | -------------------------- |
+| 1  | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 2  | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:43:30.376081 |
+| 4  | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:43:30.376081 |
+| 5  | viita   | vita@2280   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 6  | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:43:30.376081 |
+| 7  | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 8  | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:43:30.376081 |
+| 9  | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:43:30.376081 |
+| 10 | javed   | jk@9245     | 19  | data science               | 2026-01-22 12:43:30.376081 |
+| 11 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 12 | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 13 | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:46:39.223444 |
+| 14 | mateti  | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:46:39.223444 |
+| 15 | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:46:39.223444 |
+| 16 | viita   | vita@2280   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 17 | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:46:39.223444 |
+| 18 | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 19 | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:46:39.223444 |
+| 20 | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:46:39.223444 |
+| 21 | javed   | jk@9245     | 19  | data science               | 2026-01-22 12:46:39.223444 |
+| 22 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 3  | mateti  | mateti@0900 | 30  | prompt engineering         | 2026-01-22 12:43:30.376081 |
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+
+##step-7 =>  Update email(UPDATE)
+#input Query 
+    update students1 set email = 'ajita@229' where email = 'vita@2280';
+
+#process => * Database searches for matching email
+            * Updates it to new email
+
+#output 
+  * Email is successfully updated
+
+| id | name    | email       | age | course                     | created_at                 |
+| -- | ------- | ----------- | --- | -------------------------- | -------------------------- |
+| 1  | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 2  | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:43:30.376081 |
+| 4  | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:43:30.376081 |
+| 6  | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:43:30.376081 |
+| 7  | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 8  | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:43:30.376081 |
+| 9  | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:43:30.376081 |
+| 10 | javed   | jk@9245     | 19  | data science               | 2026-01-22 12:43:30.376081 |
+| 11 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 12 | anushka | ann@9220    | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 13 | kavita  | kavita@1970 | 21  | project management         | 2026-01-22 12:46:39.223444 |
+| 14 | mateti  | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:46:39.223444 |
+| 15 | vikky   | vikk@9979   | 33  | data science               | 2026-01-22 12:46:39.223444 |
+| 17 | karan   | karan@9002  | 23  | python development         | 2026-01-22 12:46:39.223444 |
+| 18 | deepty  | dipt@1150   | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 19 | naman   | nama@8611   | 21  | full stack web development | 2026-01-22 12:46:39.223444 |
+| 20 | karan   | karan@7990  | 33  | data analytics             | 2026-01-22 12:46:39.223444 |
+| 21 | javed   | jk@9245     | 19  | data science               | 2026-01-22 12:46:39.223444 |
+| 22 | vani    | vani@9909   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 3  | mateti  | mateti@0900 | 30  | prompt engineering         | 2026-01-22 12:43:30.376081 |
+| 5  | viita   | ajita@229   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 16 | viita   | ajita@229   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+
+
+##step-8 =>  Update name (UPDATE)
+
+#input Query 
+    update students1 set name = 'ajitaRahim' where name = 'viita';
+
+#process => * Database updates name where condition matches
+
+#output
+  * Student name is updated
+
+| id | name       | email       | age | course                     | created_at                 |
+| -- | ---------- | ----------- | --- | -------------------------- | -------------------------- |
+| 1  | anushka    | ann@9220    | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 2  | kavita     | kavita@1970 | 21  | project management         | 2026-01-22 12:43:30.376081 |
+| 4  | vikky      | vikk@9979   | 33  | data science               | 2026-01-22 12:43:30.376081 |
+| 6  | karan      | karan@9002  | 23  | python development         | 2026-01-22 12:43:30.376081 |
+| 7  | deepty     | dipt@1150   | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 8  | naman      | nama@8611   | 21  | full stack web development | 2026-01-22 12:43:30.376081 |
+| 9  | karan      | karan@7990  | 33  | data analytics             | 2026-01-22 12:43:30.376081 |
+| 10 | javed      | jk@9245     | 19  | data science               | 2026-01-22 12:43:30.376081 |
+| 11 | vani       | vani@9909   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 12 | anushka    | ann@9220    | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 13 | kavita     | kavita@1970 | 21  | project management         | 2026-01-22 12:46:39.223444 |
+| 14 | mateti     | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:46:39.223444 |
+| 15 | vikky      | vikk@9979   | 33  | data science               | 2026-01-22 12:46:39.223444 |
+| 17 | karan      | karan@9002  | 23  | python development         | 2026-01-22 12:46:39.223444 |
+| 18 | deepty     | dipt@1150   | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 19 | naman      | nama@8611   | 21  | full stack web development | 2026-01-22 12:46:39.223444 |
+| 20 | karan      | karan@7990  | 33  | data analytics             | 2026-01-22 12:46:39.223444 |
+| 21 | javed      | jk@9245     | 19  | data science               | 2026-01-22 12:46:39.223444 |
+| 22 | vani       | vani@9909   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 3  | mateti     | mateti@0900 | 30  | prompt engineering         | 2026-01-22 12:43:30.376081 |
+| 5  | ajitaRahim | ajita@229   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 16 | ajitaRahim | ajita@229   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+
+
+##step-9 => Delete record by id (DELETE)
+#input Query 
+    delete from students1 where id = 12;
+
+#process => * Database locates record with id 12
+            * Deletes that record
+    
+#output 
+ * Student record with id 12 is removed
+
+ | id | name       | email       | age | course                     | created_at                 |
+| -- | ---------- | ----------- | --- | -------------------------- | -------------------------- |
+| 1  | anushka    | ann@9220    | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 2  | kavita     | kavita@1970 | 21  | project management         | 2026-01-22 12:43:30.376081 |
+| 4  | vikky      | vikk@9979   | 33  | data science               | 2026-01-22 12:43:30.376081 |
+| 6  | karan      | karan@9002  | 23  | python development         | 2026-01-22 12:43:30.376081 |
+| 7  | deepty     | dipt@1150   | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 8  | naman      | nama@8611   | 21  | full stack web development | 2026-01-22 12:43:30.376081 |
+| 9  | karan      | karan@7990  | 33  | data analytics             | 2026-01-22 12:43:30.376081 |
+| 10 | javed      | jk@9245     | 19  | data science               | 2026-01-22 12:43:30.376081 |
+| 11 | vani       | vani@9909   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 13 | kavita     | kavita@1970 | 21  | project management         | 2026-01-22 12:46:39.223444 |
+| 14 | mateti     | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:46:39.223444 |
+| 15 | vikky      | vikk@9979   | 33  | data science               | 2026-01-22 12:46:39.223444 |
+| 17 | karan      | karan@9002  | 23  | python development         | 2026-01-22 12:46:39.223444 |
+| 18 | deepty     | dipt@1150   | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 19 | naman      | nama@8611   | 21  | full stack web development | 2026-01-22 12:46:39.223444 |
+| 20 | karan      | karan@7990  | 33  | data analytics             | 2026-01-22 12:46:39.223444 |
+| 21 | javed      | jk@9245     | 19  | data science               | 2026-01-22 12:46:39.223444 |
+| 22 | vani       | vani@9909   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 3  | mateti     | mateti@0900 | 30  | prompt engineering         | 2026-01-22 12:43:30.376081 |
+| 5  | ajitaRahim | ajita@229   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 16 | ajitaRahim | ajita@229   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+
+##step-10 => Delete records by condition (DELETE ⚠️)
+#input query
+   delete from students1 where age > 20;
+
+#process => * Database checks all records
+            * Deletes students whose age is greater than 20
+        
+#output 
+  * Multiple student records are deleted
+
+  | id | name       | email       | age | course                     | created_at                 |
+| -- | ---------- | ----------- | --- | -------------------------- | -------------------------- |
+| 1  | anushka    | ann@9220    | 23  | web development            | 2026-01-22 12:43:30.376081 |
+| 2  | kavita     | kavita@1970 | 21  | project management         | 2026-01-22 12:43:30.376081 |
+| 4  | vikky      | vikk@9979   | 33  | data science               | 2026-01-22 12:43:30.376081 |
+| 6  | karan      | karan@9002  | 23  | python development         | 2026-01-22 12:43:30.376081 |
+| 7  | deepty     | dipt@1150   | 23  | web development             | 2026-01-22 12:43:30.376081 |
+| 8  | naman      | nama@8611   | 21  | full stack web development | 2026-01-22 12:43:30.376081 |
+| 9  | karan      | karan@7990  | 33  | data analytics             | 2026-01-22 12:43:30.376081 |
+| 10 | javed      | jk@9245     | 19  | data science               | 2026-01-22 12:43:30.376081 |
+| 11 | vani       | vani@9909   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 13 | kavita     | kavita@1970 | 21  | project management         | 2026-01-22 12:46:39.223444 |
+| 14 | mateti     | mateti@0900 | 33  | prompt engineering         | 2026-01-22 12:46:39.223444 |
+| 15 | vikky      | vikk@9979   | 33  | data science               | 2026-01-22 12:46:39.223444 |
+| 17 | karan      | karan@9002  | 23  | python development         | 2026-01-22 12:46:39.223444 |
+| 18 | deepty     | dipt@1150   | 23  | web development            | 2026-01-22 12:46:39.223444 |
+| 19 | naman      | nama@8611   | 21  | full stack web development | 2026-01-22 12:46:39.223444 |
+| 20 | karan      | karan@7990  | 33  | data analytics             | 2026-01-22 12:46:39.223444 |
+| 21 | javed      | jk@9245     | 19  | data science               | 2026-01-22 12:46:39.223444 |
+| 22 | vani       | vani@9909   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+| 3  | mateti     | mateti@0900 | 30  | prompt engineering         | 2026-01-22 12:43:30.376081 |
+| 5  | ajitaRahim | ajita@229   | 22  | product management         | 2026-01-22 12:43:30.376081 |
+| 16 | ajitaRahim | ajita@229   | 22  | product management         | 2026-01-22 12:46:39.223444 |
+
+#NOTE: Duplicate records appear because the insert query was executed multiple times.
+
+#Warning ⚠️ => This query will permanently delete all students with age greater than 20. Use with caution, as this cannot be undone.
+
+
+### Note => this query removes duplicate rows by comparing records with the same email and deleting the one with the higher id.
+
+DELETE FROM students1 a
+USING students1 b
+WHERE a.id > b.id
+AND a.email = b.email;
+
+
+
+
+
+
