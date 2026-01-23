@@ -1,0 +1,66 @@
+##Step-11 => Count total number of students
+#Input Query
+
+  SELECT COUNT(*) FROM students1;
+
+#Process => * Database students1 table ko scan karta hai
+            * Table me jitni bhi rows (records) present hoti hain unka total count karta hai
+            * Ye query sirf number of rows return karti hai, data nahi
+
+#Output
+  
+| count |
+| ----- |
+| 11    |
+
+
+##step-12 => Find the average age of students
+#input Query
+  select avg(age) from students1;
+
+#process => * This query calculates the average value of the age column
+            * It takes the ages of all students in the students1 table
+            * Adds them together and divides by the total number of students
+            * The AVG() function automatically ignores NULL values
+
+#output 
+
+| avg                 |
+| ------------------- |
+| 24.5454545454545455 |
+
+
+## step-13 => find maximum and minimum age
+#input Query
+    select min(age), max(age) from students1;
+
+#process => * Finds the smallest  and Highest age from the age column
+            * Ignores NULL values
+
+#output 
+
+| min | max |
+| --- | --- |
+| 19  | 33  |
+
+##step-14 => Count how many students are enrolled in each course
+#input query
+   select course, count(*) from students1 group by course;
+
+#process => * The database reads all records from the students1 table
+            * It groups the records based on the course column
+            * For each course group, it counts the number of students using COUNT(*)
+            * The result displays one row per course with the total number of students enrolled
+
+#output
+
+| course                     | count |
+| -------------------------- | ----- |
+| data analytics             | 1     |
+| project management         | 1     |
+| prompt engineering         | 1     |
+| product management         | 2     |
+| full stack web development | 1     |
+| data science               | 2     |
+| python development         | 1     |
+| wev development            | 2     |
