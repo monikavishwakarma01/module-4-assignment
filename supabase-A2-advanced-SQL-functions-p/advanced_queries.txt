@@ -3,9 +3,9 @@
 
   SELECT COUNT(*) FROM students1;
 
-#Process => * Database students1 table ko scan karta hai
-            * Table me jitni bhi rows (records) present hoti hain unka total count karta hai
-            * Ye query sirf number of rows return karti hai, data nahi
+#Process => * Database students1 table ko scan karta hai.
+            * Table me jitni bhi rows (records) present hoti hain unka total count karta hai.
+            * Ye query sirf number of rows return karti hai, data nahi.
 
 #Output
   
@@ -18,10 +18,10 @@
 #input Query
   select avg(age) from students1;
 
-#process => * This query calculates the average value of the age column
-            * It takes the ages of all students in the students1 table
-            * Adds them together and divides by the total number of students
-            * The AVG() function automatically ignores NULL values
+#process => * This query calculates the average value of the age column.
+            * It takes the ages of all students in the students1 table.
+            * Adds them together and divides by the total number of students.
+            * The AVG() function automatically ignores NULL values.
 
 #output 
 
@@ -34,8 +34,8 @@
 #input Query
     select min(age), max(age) from students1;
 
-#process => * Finds the smallest  and Highest age from the age column
-            * Ignores NULL values
+#process => * Finds the smallest  and Highest age from the age column.
+            * Ignores NULL values.
 
 #output 
 
@@ -47,10 +47,10 @@
 #input query
    select course, count(*) from students1 group by course;
 
-#process => * The database reads all records from the students1 table
-            * It groups the records based on the course column
-            * For each course group, it counts the number of students using COUNT(*)
-            * The result displays one row per course with the total number of students enrolled
+#process => * The database reads all records from the students1 table.
+            * It groups the records based on the course column.
+            * For each course group, it counts the number of students using COUNT(*).
+            * The result displays one row per course with the total number of students enrolled.
 
 #output
 
@@ -64,3 +64,58 @@
 | data science               | 2     |
 | python development         | 1     |
 | wev development            | 2     |
+
+
+##step-15 => Count students whose age is greater than 20
+#input Query 
+     select course, count(*) from students1 where age>20 group by course
+
+#process => * First, data is taken from the students1 table.
+            * Then, students whose age is greater than 20 are selected.
+            * After that, the selected students are grouped by course.
+      
+#output
+  
+| course                     | count |
+| -------------------------- | ----- |
+| data analytics             | 1     |
+| project management         | 1     |
+| prompt engineering         | 1     |
+| product management         | 2     |
+| full stack web development | 1     |
+| data science               | 1     |
+| python development         | 1     |
+| wev development            | 2     |
+
+
+##step-16 => Fetch the latest 3 students based on created_at
+#input query
+    select * from students1 limit 3
+
+#process => * first this query going to the students1 table select only 3 students data.
+
+#output
+
+| id | name    | email       | age | course             | created_at                 |
+| -- | ------- | ----------- | --- | ------------------ | -------------------------- |
+| 1  | anushka | ann@9220    | 23  | wev development    | 2026-01-22 12:43:30.376081 |
+| 2  | kavita  | kavita@1970 | 21  | project management | 2026-01-22 12:43:30.376081 |
+| 4  | vikky   | vikk@9979   | 33  | data science       | 2026-01-22 12:43:30.376081 |
+
+##step-17 => Fetch students enrolled in a specific course, sorted by age (descending)1
+#input query
+    select * from students1 where course='data science' order by age desc;
+
+#process => * First, data is taken from the students1 table.
+            * The WHERE clause is used to select only students enrolled in a specific course (e.g., BTech).
+            * The ORDER BY age DESC clause sorts the selected students from highest age to lowest age.
+            * Finally, the result shows all columns for students of that course, sorted by age.
+
+#output
+
+| id | name  | email     | age | course       | created_at                 |
+| -- | ----- | --------- | --- | ------------ | -------------------------- |
+| 4  | vikky | vikk@9979 | 33  | data science | 2026-01-22 12:43:30.376081 |
+| 10 | javed | jk@9245   | 19  | data science | 2026-01-22 12:43:30.376081 |
+
+
